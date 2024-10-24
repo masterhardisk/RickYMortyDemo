@@ -1,0 +1,15 @@
+{
+  "originHash" : "2dbf3fb379a94e0932622db119320c0acb4a64118e473415b7f08bdfe4a3a81b",
+  "pins" : [
+    {
+      "identity" : "rick-and-morty-swift-api?tab=readme-ov-file#installation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/benjaminbruch/Rick-and-Morty-Swift-API?tab=readme-ov-file#installation",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c7e165e61d746cd82fb0dda5e796323224af90e2"
+      }
+    }
+  ],
+  "version" : 3
+}
