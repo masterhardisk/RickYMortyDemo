@@ -19,6 +19,11 @@ struct CharacterDetailView: View {
             }
             .navigationTitle(character.name)
         }
+        .alert("Aplication Error", isPresented: $characterDetailViewModel.errorShow) {
+        } message: {
+            Text(characterDetailViewModel.errorMessage)
+        }
+
     }
 }
 

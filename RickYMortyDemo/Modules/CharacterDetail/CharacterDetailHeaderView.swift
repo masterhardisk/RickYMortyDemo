@@ -31,17 +31,19 @@ struct CharacterDetailHeaderView: View {
             }
             VStack {
                 Spacer()
-                HStack {
-                    Circle()
-                        .foregroundColor(character.status == "Alive" ? .green : .red)
-                        .frame(width: 10, height: 10)
-                    Text(character.status)
-                    Spacer()
-                }.padding()
-                
+                VStack (alignment: .leading){
+                    HStack{
+                        Label(character.status.rawValue, image: character.status == .unknown ? .heartHalf : .heartFill)
+                            .foregroundStyle(character.statusColor)
+                            .background(.black.opacity(0.6))
+                        Spacer()
+                    }
+                }
+                .padding()
             }
             .padding()
         }.frame(height: 200)
+            
     }
 }
 

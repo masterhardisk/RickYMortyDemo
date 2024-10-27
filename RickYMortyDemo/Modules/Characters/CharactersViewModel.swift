@@ -12,6 +12,8 @@ final class CharactersViewModel {
     let characterRepository: CharacterRepository
     var characters: [Character] = []
     var searchText = ""
+    var errorShow = false
+    var errorMessage = ""
     
     var filteredCharacters: [Character] {
         if searchText.isEmpty {
@@ -20,7 +22,8 @@ final class CharactersViewModel {
             characters.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText) ||
                 $0.species.localizedCaseInsensitiveContains(searchText) ||
-                $0.origin.name.localizedCaseInsensitiveContains(searchText)
+                $0.origin.name.localizedCaseInsensitiveContains(searchText) ||
+                $0.gender.localizedCaseInsensitiveContains(searchText)
             }
         }
     }
@@ -30,7 +33,13 @@ final class CharactersViewModel {
     }
     
     func fetchCharacters() async {
-        characters = (try? await characterRepository.getCharacters()) ?? []
+        do {
+            characters = try await characterRepository.getCharacters()
+        } catch {
+            print(error)
+            errorShow.toggle()
+            errorMessage = error.localizedDescription
+        }
     }
 
 }

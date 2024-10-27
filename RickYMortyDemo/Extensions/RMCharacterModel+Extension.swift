@@ -12,7 +12,7 @@ extension RMCharacterModel {
     var toCharacter: Character {
         Character(id: id,
                   name: name,
-                  status: status,
+                  status: Status(rawValue: status) ?? .unknown,
                   species: species,
                   type: type,
                   gender: gender,
@@ -23,3 +23,4 @@ extension RMCharacterModel {
                   created: created)
     }
 }
+    

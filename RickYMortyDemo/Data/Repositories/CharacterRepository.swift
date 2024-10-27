@@ -8,6 +8,15 @@ import Foundation
 
 class CharacterRepository: Repository {
     func getCharacters() async throws -> [Character] {
-        return try await rickandmortyAPI.getCharacters()
+        var characters = try await SwiftDataManager.getAllCharacters()
+        if !characters.isEmpty {
+            print("from swift data: \(characters.count)")
+            return characters
+        }else {
+            characters = try await rickandmortyAPI.getCharacters()
+            try await SwiftDataManager.saveAllCharacters(characters)
+            print("from api: \(characters.count)")
+            return characters
+        }
     }
 }

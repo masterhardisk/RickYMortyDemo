@@ -10,9 +10,7 @@ import SwiftUI
 struct CharactersView: View {
     @State var charactersViewModel = CharactersViewModel()
     
-    
     var body: some View {
-        
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2)) {
@@ -21,11 +19,13 @@ struct CharactersView: View {
                     }
                 }
             }
-            
-            
             .searchable(text: $charactersViewModel.searchText, prompt: "Search")
             .task { await charactersViewModel.fetchCharacters() }
             .navigationTitle("Rick and Morty")
+        }
+        .alert("Aplication Error", isPresented: $charactersViewModel.errorShow) { }
+        message: {
+            Text(charactersViewModel.errorMessage)
         }
     }
 }

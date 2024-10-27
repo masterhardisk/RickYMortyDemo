@@ -11,7 +11,6 @@ struct CharacterCardView: View {
     let character: Character
     
     var body: some View {
-            
         NavigationLink(destination: CharacterDetailView(character: character)) {
             ZStack {
                 AsyncImage(url: URL(string: character.image)) { image in

@@ -4,11 +4,13 @@
 //
 //  Created by MasterHardisk on 24/10/24.
 //
+import Foundation
+import SwiftUICore
 
 extension Character {
     static let test = Character(id: 1,
                                 name: "Rick Sanchez",
-                                status: "Alive",
+                                status: .alive,
                                 species: "Human",
                                 type: "",
                                 gender: "male",
@@ -21,6 +23,14 @@ extension Character {
     var episodes: [Int] {
         episode.compactMap { urlString in
             Int(urlString.split(separator: "/").last.map(String.init) ?? "")
+        }
+    }
+    
+    var statusColor: Color {
+        switch status {
+            case .alive: return .green
+            case .dead: return .red
+            case .unknown: return .yellow
         }
     }
 }

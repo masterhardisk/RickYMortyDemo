@@ -11,7 +11,6 @@ import RickMortySwiftApi
 class RickandmortyAPI{
     let rmClient = RMClient()
     
-    
     func getCharacters() async throws -> [Character] {
         return try await rmClient.character().getAllCharacters().map(\.toCharacter)
     }

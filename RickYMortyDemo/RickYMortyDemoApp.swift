@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct RickYMortyTestApp: App {
@@ -13,5 +14,6 @@ struct RickYMortyTestApp: App {
         WindowGroup {
             CharactersView()
         }
+        .modelContainer(SwiftDataManager().sharedModelContainer)
     }
 }

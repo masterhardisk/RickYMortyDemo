@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import SwiftData
 
 struct Character: Identifiable, Hashable {
     let id: Int
     let name: String
-    let status: String
+    let status: Status
     let species: String
     let type: String
     let gender: String
@@ -19,4 +20,10 @@ struct Character: Identifiable, Hashable {
     let image: String
     let episode: [String]
     let created: String
+}
+
+enum Status: String, Codable {
+    case alive = "Alive"
+    case dead = "Dead"
+    case unknown = "Unknown"
 }
