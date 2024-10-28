@@ -7,15 +7,16 @@
 import Foundation
 
 class CharacterRepository: Repository {
+    
     func getCharacters() async throws -> [Character] {
-        var characters = try await SwiftDataManager.getAllCharacters()
-        if !characters.isEmpty {
-            print("from swift data: \(characters.count)")
+        var characters: [Character]
+        switch networkManager.isConnected {
+        case .connected:
+            characters = try await rickandmortyAPI.getAllCharacters()
+            try await CharacterDataManager.saveAllCharacters(characters)
             return characters
-        }else {
-            characters = try await rickandmortyAPI.getCharacters()
-            try await SwiftDataManager.saveAllCharacters(characters)
-            print("from api: \(characters.count)")
+        case .disconnected, .unknown:
+            characters = try CharacterDataManager.getAllCharacters()
             return characters
         }
     }

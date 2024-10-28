@@ -23,7 +23,7 @@ struct CharacterDetailView: View {
         } message: {
             Text(characterDetailViewModel.errorMessage)
         }
-
+        
     }
 }
 

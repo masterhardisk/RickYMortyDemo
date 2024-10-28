@@ -11,40 +11,24 @@ struct CharacterDetailHeaderView: View {
     let character: Character
     
     var body: some View {
-        ZStack {
-            AsyncImage(url: URL(string: character.image)) { image in
-                if let image = image.image {
-                    image.resizable()
-                        .scaledToFill()
-                        .frame( height: 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 25, style: .circular))
-                        .clipped()
-                        .padding()
-                        
-                }else {
-                    Color
-                        .gray
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
-                }
-            }
-            VStack {
-                Spacer()
-                VStack (alignment: .leading){
-                    HStack{
-                        Label(character.status.rawValue, image: character.status == .unknown ? .heartHalf : .heartFill)
-                            .foregroundStyle(character.statusColor)
-                            .background(.black.opacity(0.6))
-                        Spacer()
-                    }
-                }
-                .padding()
-            }
-            .padding()
-        }.frame(height: 200)
+        HStack(alignment: .top, spacing: 16) {
+            CachedAsyncImage(url: URL(string: character.image))
+                .frame(maxWidth: 300)
+                .cornerRadius(10)
             
+            VStack(alignment: .leading, spacing: 8) {
+                RMDText(title: "Status:", text: character.status.rawValue, icon: Image(character.status == .unknown ? .heartHalf : .heartFill), color: character.statusColor)
+               
+                RMDText(title: "Type:", text: character.type.isEmpty ? "N/A" : character.type)
+                RMDText(title: "Gender:", text: character.gender)
+                RMDText(title: "Origin:", text: character.origin.name)
+                RMDText(title: "Location:", text: character.location.name)
+            }
+        }
+        .padding()
+        
     }
+    
 }
 
 #Preview {

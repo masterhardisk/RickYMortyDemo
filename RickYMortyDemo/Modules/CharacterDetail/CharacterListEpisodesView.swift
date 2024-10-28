@@ -27,8 +27,12 @@ struct CharacterListEpisodesView: View {
                                 .font(.footnote)
                         }
                         Spacer()
-                        Text(episode.airDate)
-                            .font(.footnote)
+                        VStack{
+                            Text(episode.airDate)
+                                .font(.footnote)
+                            Spacer()
+                        }
+                        
                     }
                 }
             }

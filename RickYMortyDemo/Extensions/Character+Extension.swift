@@ -8,6 +8,20 @@ import Foundation
 import SwiftUICore
 
 extension Character {
+    var toCharacterDataModel: CharacterDataModel {
+        return CharacterDataModel(id: id,
+                                  name: name,
+                                  status: status.rawValue,
+                                  species: species,
+                                  type: type,
+                                  gender: gender,
+                                  episode: episode,
+                                  origin: origin.toOriginDataModel,
+                                  location: location.toLocationDataModel,
+                                  image: image,
+                                  created: created)
+    }
+    
     static let test = Character(id: 1,
                                 name: "Rick Sanchez",
                                 status: .alive,

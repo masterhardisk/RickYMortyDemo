@@ -9,4 +9,5 @@ import Foundation
 
 class Repository {
     internal var rickandmortyAPI: RickandmortyAPI = RickandmortyAPI()
+    internal var networkManager: NetworkManager = NetworkManager.shared
 }

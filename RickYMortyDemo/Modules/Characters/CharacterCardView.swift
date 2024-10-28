@@ -13,19 +13,7 @@ struct CharacterCardView: View {
     var body: some View {
         NavigationLink(destination: CharacterDetailView(character: character)) {
             ZStack {
-                AsyncImage(url: URL(string: character.image)) { image in
-                    if let image = image.image {
-                        image.resizable()
-                            .scaledToFill()
-                            .frame(width: .signalingNaN, height: 200)
-                            .clipped()
-                    }else {
-                        Color
-                            .gray
-                            .scaledToFill()
-                            .frame(width: 100, height: 150)
-                    }
-                }
+                CachedAsyncImage(url: URL(string: character.image))
                 VStack {
                     Spacer()
                     VStack {
