@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/Q7BBVSQ/Rick-26-Morty-Profile-Icon-2.jpg" width="200" height="200" alt="Rick and Morty Viewer Logo" style="border-radius: 50%;" />
+<img src="https://iili.io/2AU3KdJ.th.png" width="200" height="200" alt="Rick and Morty Viewer Logo"/>
 
 # RickYMortyDemo
 
