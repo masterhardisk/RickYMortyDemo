@@ -44,5 +44,5 @@ struct RMDText: View {
 }
 
 #Preview {
-    RMDText(title: "Specie:", text: "Alien")
+    RMDText(title: "Specie:", text: "Alien", icon: Image(systemName: "star.fill"), color: .yellow)
 }

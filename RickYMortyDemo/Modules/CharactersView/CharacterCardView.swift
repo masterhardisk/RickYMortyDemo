@@ -36,7 +36,6 @@ struct CharacterCardView: View {
 
             }
             .frame(height: 200)
-   
             }
             .clipShape(RoundedRectangle(cornerRadius: 30))
             
